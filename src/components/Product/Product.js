@@ -9,7 +9,10 @@ const Product = ({product, handleAddToCart}) => {
     
     return (
         <div className='product'>
-            <img src={img} alt=""></img>
+            <img onError={({target }) => { target.onerror = null; // prevents looping
+                                                target.src="currently_not_available.jpg";
+                                                }}
+                src={img} alt="" />
             <div className='product-info'>
                 <p className='product-name'>{name}</p>
                 <p>Price: ${price}</p>
